@@ -1,50 +1,19 @@
-<div class="container-fluid">
-  <div class="row flex nowwrap">
-    <div class="bg-dark col-auto col-md-2 min-vh-100">
-      <div class="bg-dark p-2">
-        <a class="d-flex text-decoration-none mt-1 align-items-center text-white">
-         <span class="fs-3 ms-4 d-none d-sm-inline">Menu</span>
-        </a>
-
-        <ul class="nav nav-pills flex-column mt-2">
-            <li class="nav-item">
-                <a href="#" class="nav-link text-white">
-                    <i class="fa-solid fa-gauge"></i><span class="fs-4 ms-3 d-none d-sm-inline">Admin</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link text-white">
-                    <i class="fa-solid fa-user"></i><span class="fs-4 ms-3 d-none d-sm-inline">Profile</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link text-white">
-                    <i class="fa-solid fa-house"></i><span class="fs-4 ms-3 d-none d-sm-inline">Home</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link text-white">
-                    <i class="fa-solid fa-right-to-bracket"></i><span class="fs-4 ms-3 d-none d-sm-inline">Login</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link text-white">
-                    <i class="fa-solid fa-registered"></i><span class="fs-4 ms-3 d-none d-sm-inline">Register</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link text-white">
-                    <i class="fa-solid fa-power-off"></i><span class="fs-4 ms-3 d-none d-sm-inline">Logout</span>
-                </a>
-            </li>
-        </ul>
-      </div>
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':'' " >
+    <div class="logo-container">
+        <button class="logo" (click)="toggleCollapse()"><i class="fa-solid fa-bars"></i></button>
+        <div class="logo-text" *ngIf="collapsed">Library Manager</div>
+        <button class="button-close" *ngIf="collapsed" (click)="closeSideNav()"></button>
     </div>
-  </div>
+    
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item" *ngFor="let data of navData">
+        <a class="sidenav-nav-link" [routerLink]="[data.routerLink]">
+            <i class="sidenav-link-icon" [class]="data.icon">
+            </i>
+            <span class="sidenav-link-text" *ngIf="collapsed">
+                {{data.label}}
+            </span>
+        </a>
+      </li>  
+    </ul>
 </div>
-
