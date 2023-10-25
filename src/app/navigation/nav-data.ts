@@ -28,6 +28,11 @@ export const navbarData=
         label: 'Login'   
     },
     {
+        routerLink:'member',
+        icon:'fa-solid fa-chess-king',
+        label:'Become a member'
+    },
+    {
         routerLink: 'logout',
         icon: 'fa-solid fa-power-off',
         label: 'Logout'   

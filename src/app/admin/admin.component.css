@@ -1,0 +1,16 @@
+.main-container
+{
+    
+}
+
+.body
+{
+    box-shadow: 0.063rem 0 1.25rem 0 rgb(222, 221, 221);
+    border: 0.3px solid silver;
+    padding: 15px;
+}
+
+.header h1
+{
+    text-align: center;
+}

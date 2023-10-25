@@ -9,6 +9,11 @@ export class ProfileservicesComponent
 {
   buttons=[
     {
+      label:'Become a member',
+      class:'btn btn-light'
+    },
+
+    {
       label:'View Membership Details',
       class:'btn btn-light'
     },
