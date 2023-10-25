@@ -5,6 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './profilebody.component.html',
   styleUrls: ['./profilebody.component.css']
 })
-export class ProfilebodyComponent {
+export class ProfilebodyComponent 
+{
+  patronName:string = "Santadip";
+  icon = this.patronName.charAt(0).toLocaleUpperCase();
 
 }

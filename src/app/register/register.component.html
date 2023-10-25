@@ -1,29 +1,39 @@
-<div class="container">
-  <div class="center" id="box1">
-    <div class="head" id="head">
-      <h1>User Registration</h1>
+<div class="main-container">
+  <div class="container">
+    <div class="center" id="box1">
+      <div class="head" id="head">
+        <h1>User Registration</h1>
+      </div>
+      <form action="register" method="post">
+        <div class="txt_field">
+          <input type="text" id="username" name="username" required />
+          <span></span>
+          <label for="username">Username:</label>
+        </div>
+        <div class="txt_field">
+          <input type="email" id="email" name="email" required />
+          <span></span>
+          <label for="email">Email:</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" id="password" name="password" required />
+          <span></span>
+          <label for="password">Password:</label>
+        </div>
+        <input class="bg-primary" type="submit" value="Register" />
+  
+        <div class="back">
+          <a href="#"><span class="text-primary">Already a user? Login</span></a>
+        </div>
+      </form>
     </div>
-    <form action="register" method="post">
-      <div class="txt_field">
-        <input type="text" id="username" name="username" required />
-        <span></span>
-        <label for="username">Username:</label>
-      </div>
-      <div class="txt_field">
-        <input type="email" id="email" name="email" required />
-        <span></span>
-        <label for="email">Email:</label>
-      </div>
-      <div class="txt_field">
-        <input type="password" id="password" name="password" required />
-        <span></span>
-        <label for="password">Password:</label>
-      </div>
-      <input class="bg-primary" type="submit" value="Register" />
-
-      <div class="back">
-        <a href="#"><span class="text-primary">Already a user? Login</span></a>
-      </div>
-    </form>
   </div>
+
+  <div class="another-container">
+    <app-authentication></app-authentication>
+  </div>
+
 </div>
+
+
+

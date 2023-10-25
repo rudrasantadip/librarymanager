@@ -1,0 +1,27 @@
+.main-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.link-item-card
+{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.link-item-card i
+{
+
+    font-size: 24px;
+}
+
+.link-item-card:hover
+{
+    background-color: white;
+    cursor: pointer;
+    border-radius: 95px;
+}

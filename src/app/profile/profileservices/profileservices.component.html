@@ -4,11 +4,16 @@
         <span class="text-body-secondary">Various Services</span>
     </div>
 
-    <div class="body flex-nowrap">
+    <!-- <div class="body flex-nowrap">
          <button class="btn btn-light">View Membership Details</button>
          <button class="btn btn-light">Extend Membership</button>
          <button class="btn btn-light">Cancle Membership</button>
          <button class="btn btn-light">Report Exposed Credentials</button>
          <button class="btn btn-light">Customer Support</button>
+    </div> -->
+
+    <div class="body flex-nowrap">
+        <button  *ngFor="let button of buttons" [ngClass]="button.class">{{button.label}}</button>
     </div>
+
 </div>

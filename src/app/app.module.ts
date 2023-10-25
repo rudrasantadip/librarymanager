@@ -18,6 +18,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { ProfileheaderComponent } from './profile/profileheader/profileheader.component';
 import { ProfilebodyComponent } from './profile/profilebody/profilebody.component';
 import { ProfileservicesComponent } from './profile/profileservices/profileservices.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 
 
@@ -38,6 +39,7 @@ import { ProfileservicesComponent } from './profile/profileservices/profileservi
     ProfileheaderComponent,
     ProfilebodyComponent,
     ProfileservicesComponent,
+    AuthenticationComponent,
   ],
   imports: [
     BrowserModule,
