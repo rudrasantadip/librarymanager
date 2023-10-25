@@ -1,0 +1,45 @@
+<div class="main-content">
+    <div class="header-wrapper">
+        <div class="header-title text-dark">
+            <span class="fs-5 blockquote">{{accessed_by}}</span>
+            <h2>Dashboard</h2>
+        </div>
+        <div class="user-info">
+            <div class="search-box bg-light">
+            <i class="fa-solid fa-search"></i>
+            <input class="bg-light" type="text" name="" id="" placeholder="search" />
+        </div>
+        <div class="profile">
+            <i class="fa-regular fa-user"></i>
+        </div>
+    </div>
+  </div>
+
+  <div class="card-container mt-2">
+    <div class="card-wrapper">
+        <div class="issued-book-card " id="issued-books">
+            <i class="fa-solid fa-book fs-2"></i>
+            <h3 class="fs-5">Issued Books: <span class="book_nos">{{no_of_books}}</span></h3>
+            <button class="btn btn-primary">Open</button>
+        </div>
+
+        <div class="issued-book-card" id="returned-books">
+            <i class="fa-solid fa-receipt fs-2"></i>
+            <h3 class="fs-5">Returned Books</h3>
+            <button class="btn btn-info text-light">Open</button>
+        </div>
+
+        <div class="issued-book-card" id="issue-book">
+            <i class="fa-solid fa-bookmark fs-2"></i>
+            <h3 class="fs-5">Issue Book</h3>
+            <button class="btn btn-danger">Open</button>
+        </div>
+
+    </div>
+  </div>
+
+  <div class="history-table">
+    <h1 class="fs-3">History</h1>
+      <app-historytable></app-historytable>
+  </div>
+</div>

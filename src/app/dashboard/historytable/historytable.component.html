@@ -1,0 +1,27 @@
+
+<table datatable [dtOptions]="dtOptions" id="history-table" class="row-border hover">
+    <thead>
+        <tr>
+            <th>Issue Date</th>
+            <th>Return Date</th>
+            <th>Status</th>
+            <th>Book Name</th>
+            <th>Book Id</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Late Fees</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of tableDataItems">
+            <td>{{item.issueDate}}</td>
+            <td>{{item.returnDate}}</td>
+            <td>{{item.status}}</td>
+            <td>{{item.bookName}}</td>
+            <td>{{item.bookId}}</td>
+            <td>{{item.author}}</td>
+            <td>{{item.genre}}</td>
+            <td>{{item.latefees}}</td>
+        </tr>
+    </tbody>
+</table>

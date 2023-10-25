@@ -1,4 +1,8 @@
 
   <div class="main-box">
-    <app-navigation></app-navigation>
+    <app-navigation (onToggleSideNav)="onToggleSideNav($event)"></app-navigation>
+    <app-body>
+      [collapsed]="isNavCollapsed";
+      [screenWidth]="screenWidth";
+    </app-body>
   </div>

@@ -1,19 +1,23 @@
-<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':'' " >
+<div class="sidenav bg-light" [ngClass]="collapsed ? 'sidenav-collapsed':'' " >
     <div class="logo-container">
         <button class="logo" (click)="toggleCollapse()"><i class="fa-solid fa-bars"></i></button>
-        <div class="logo-text" *ngIf="collapsed">Library Manager</div>
+        <div class="logo-text" *ngIf="collapsed"></div>
         <button class="button-close" *ngIf="collapsed" (click)="closeSideNav()"></button>
     </div>
     
     <ul class="sidenav-nav">
       <li class="sidenav-nav-item" *ngFor="let data of navData">
-        <a class="sidenav-nav-link" [routerLink]="[data.routerLink]">
+        <a class="sidenav-nav-link" [routerLink]="[data.routerLink]"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
+        >
             <i class="sidenav-link-icon" [class]="data.icon">
             </i>
             <span class="sidenav-link-text" *ngIf="collapsed">
                 {{data.label}}
             </span>
         </a>
-      </li>  
+      </li>
+      <br>  
     </ul>
 </div>

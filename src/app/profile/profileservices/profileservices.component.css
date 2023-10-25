@@ -1,0 +1,38 @@
+.main-container
+{
+    border: 0.5px solid silver;
+    box-shadow: 0.063rem 0 1.25rem 0 rgb(218, 216, 216);
+    border-radius: 15px;
+    background: #ffffff;
+    margin-top: 12px;
+    margin-left: -29px;
+    margin-right: -29px;
+    padding: 15px;
+}
+
+h1
+{
+    margin: 0;
+    padding: 0;
+}
+
+button
+{
+    margin: 5px;
+    border: 0.3px solid silver;
+}
+
+.body
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+@media(max-width:750px)
+{
+    .body
+    {
+        flex-direction: column;
+    }
+}

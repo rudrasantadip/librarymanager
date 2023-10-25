@@ -12,15 +12,13 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-40%, -50%);
+    transform: translate(-50%, -50%);
     width: 400px;
     height: 460px;
     background: white;
     border-radius: 10px;
-    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
-    opacity: 0.9;
-
-    
+    box-shadow: 0.063rem 0 1.25rem 0 rgba(0,0,0,0.5);
+    opacity: 0.9; 
   }
 
 .center
@@ -81,13 +79,13 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: #2691d9;
+      background: #214ddc;
       transition: .5s;
     }
     .txt_field input:focus ~ label,
     .txt_field input:valid ~ label{
       top: -5px;
-      color: #2691d9;
+      color: #214ddc;
     }
     .txt_field input:focus ~ span::before,
     .txt_field input:valid ~ span::before{
