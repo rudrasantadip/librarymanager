@@ -1,0 +1,29 @@
+
+<app-header></app-header>
+
+<div class="body">
+  <h1 class="fs-3 p-2">Genere</h1>
+  <div class="book-data" *ngFor="let data of this.displaylist">
+    <div class="heading">
+      <h2 class="fs-4 p-2">{{data.holderTitle}}</h2>
+    </div>
+
+    <div class="display-body">
+      <ul class="display-items-list">
+        <li class="display-list-items" *ngFor="let element of data.books">
+          <div class="element" >
+            <div class="image">
+              <img
+                [src]="element.imgSource"
+                alt=""
+              />
+            </div>
+            <div class="label">{{element.bookLabel}}</div>
+            <div class="issue"><Button class="btn btn-primary" (click)="issueBook(element)">Issue</Button></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

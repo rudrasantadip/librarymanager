@@ -1,0 +1,36 @@
+<div class="heading">
+  <app-header></app-header>
+</div>
+
+<div class="body">
+  <div class="top">
+    <h2 class="return-heading fs-4 mt-3">Issued Books</h2>
+  </div>
+
+  <div class="middle">
+    <div class="returned-book-table">
+      <table datatable [dtOptions]="dtOptions" id="returned-book-table" class="row-border hover">
+        <thead>
+          <tr>
+            <th>Book</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Issue Date</th>
+            <th>Returned Date</th>
+            <th>Extend Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of issued_books_data">
+            <td><img class="table-image" [src]="item.bookLabel" alt=""></td>
+            <td>{{item.author}}</td>
+            <td>{{item.genre}}</td>
+            <td>{{item.issueDate}}</td>
+            <td>{{item.returnedDate}}</td>
+            <td><button class="btn btn-light">Reissue</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -3,11 +3,6 @@
 export const navbarData= 
 [
     {
-        routerLink: 'admin',
-        icon: 'fa-solid fa-star',
-        label: 'Admin' , 
-    },
-    {
         routerLink: 'dashboard',
         icon: 'fa fa-home',
         label: 'Dashboard'   

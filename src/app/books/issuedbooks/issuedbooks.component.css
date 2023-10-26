@@ -1,0 +1,9 @@
+.table-image
+{
+    height: 100px;
+}
+
+table tbody tr td, table thead tr th
+{
+    text-align: center;
+}
