@@ -1,5 +1,6 @@
 import { Component,EventEmitter,HostListener,OnInit,Output } from '@angular/core';
 import { navbarData } from './nav-data';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 interface SideNavToggle
 {
@@ -17,6 +18,7 @@ collapsed:boolean;
 
 export class NavigationComponent implements OnInit
 {
+  constructor(private ngxService: NgxUiLoaderService){}
   @HostListener('window:resize',['$event'])
   onResize(event:any)
   {
@@ -30,7 +32,7 @@ export class NavigationComponent implements OnInit
 
   ngOnInit(): void 
   {
-    this.screenWidth=window.innerWidth;
+    this.screenWidth=window.innerWidth;    
   }
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();

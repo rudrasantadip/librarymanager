@@ -8,15 +8,17 @@ import { AppComponent } from './app.component';
 import { IssuebookComponent } from './books/issuebook/issuebook.component';
 import { ReturnedbooksComponent } from './books/returnedbooks/returnedbooks.component';
 import { IssuedbooksComponent } from './books/issuedbooks/issuedbooks.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 
 const routes: Routes = [
   {path:'app', component:AppComponent},
-  {path:"", redirectTo:'dashboard', pathMatch:'full'},
+  {path:"", redirectTo:'register', pathMatch:'full'},
   {path:'dashboard', component:DashboardComponent},
   {path:'login', component:LoginComponent},
   {path:'register',component:RegisterComponent},
+  {path:'loading',component:LoadingComponent},
   {path:'profile',component:ProfileComponent},
   {path:'issuebook', component:IssuebookComponent},
   {path:'returnedbooks', component:ReturnedbooksComponent},
