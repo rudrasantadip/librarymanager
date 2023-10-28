@@ -21,10 +21,9 @@ export class AppComponent implements OnInit
 
   ngOnInit() :void
   {
-    this.ngxService.start(); // start foreground spinner of the master loader with 'default' taskId
-    // Stop the foreground loading after 5s
+    this.ngxService.start('master'); 
     setTimeout(() => {
-      this.ngxService.stop(); // stop foreground spinner of the master loader with 'default' taskId
+      this.ngxService.stop('master'); 
     }, 1000);
   }
   

@@ -32,6 +32,7 @@
             placeholder="Full Name"
             aria-label="Full Name"
             aria-describedby="basic-addon2"
+            [value]="'Santadip Rudra'"
             readonly
           />
         </div>
@@ -42,6 +43,7 @@
             placeholder="User Name"
             aria-label="User Name"
             aria-describedby="basic-addon2"
+            [value]="responseData.patron.userName"
             readonly
           />
         </div>
@@ -52,6 +54,7 @@
             placeholder="Email"
             aria-label="Email"
             aria-describedby="basic-addon2"
+            [value]="responseData.patron.email"
             readonly
           />
         </div>
@@ -63,8 +66,9 @@
             type="number"
             class="form-control"
             placeholder="Contact Number"
-            aria-label="Full Name"
+            aria-label="Contact Number"
             aria-describedby="basic-addon2"
+            [value]="responseData.patron.contactNumber"
             readonly
           />
         </div>
@@ -75,6 +79,7 @@
             placeholder="Date of Birth"
             aria-label="Date of Birth"
             aria-describedby="basic-addon2"
+            [value]="responseData.patron.dob"
             readonly
           />
         </div>
@@ -85,6 +90,7 @@
             placeholder="Gender"
             aria-label="Gender"
             aria-describedby="basic-addon2"
+            [value]="responseData.patron.gender"
             readonly
           />
         </div>
@@ -97,7 +103,7 @@
     <div class="basic-head">
       <h1 class="basic-info fs-4">Credentials info</h1>
       <span class="basic-sub text-body-secondary"
-        >Your personal information <span class="edit-info text-primary">(Manage)</span></span
+        >Your private information <span class="edit-info text-primary">(Manage)</span></span
       >
     </div>
 
@@ -111,6 +117,7 @@
             placeholder="Library Card Number"
             aria-label="Library Card Number"
             aria-describedby="basic-addon2"
+            [value]="responseData.patron.cardNumber"
             readonly
           />
         </div>
@@ -121,6 +128,7 @@
             placeholder="Validity"
             aria-label="Validity"
             aria-describedby="basic-addon2"
+            [value]="responseData.patron.cardValidity"
             readonly
           />
         </div>
@@ -131,6 +139,7 @@
             placeholder="Card Type"
             aria-label="Card Type"
             aria-describedby="basic-addon2"
+            [value]="responseData.patron.cardType"
             readonly
           />
         </div>

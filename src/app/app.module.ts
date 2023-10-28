@@ -22,6 +22,7 @@ import { IssuebookComponent } from './books/issuebook/issuebook.component';
 import { ReturnedbooksComponent } from './books/returnedbooks/returnedbooks.component';
 import { IssuedbooksComponent } from './books/issuedbooks/issuedbooks.component';
 import { LoadingComponent } from './loading/loading.component';
+import { CredshareService } from './services/credshare.service';
 
 
 
@@ -31,6 +32,7 @@ const ngxuiLoaderConfig:NgxUiLoaderConfig ={
   fgsSize:80,
   fgsColor: 'white',
   pbColor: 'blue',
+  masterLoaderId: 'master'
 }
 
 
@@ -63,7 +65,7 @@ const ngxuiLoaderConfig:NgxUiLoaderConfig ={
     HttpClientModule,
     DataTablesModule
   ],
-  providers: [],
+  providers: [CredshareService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
