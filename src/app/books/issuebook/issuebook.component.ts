@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookserviceService } from '../services/bookservice.service';
+import { Book } from 'src/app/models/books/book';
 
 @Component({
   selector: 'app-issuebook',
@@ -9,50 +10,49 @@ import { BookserviceService } from '../services/bookservice.service';
 export class IssuebookComponent implements OnInit {
   bookService: BookserviceService;
 
-  fictionholder: {
-    books: {
-      imgSource: string;
-      bookLabel: string;
-    }[];
+  books! : Book[] 
+
+  fictionholder!: {
+    books: Book[];
     holderTitle: string;
   };
 
-  academicholder: {
-    books: {
-      imgSource: string;
-      bookLabel: string;
-    }[];
+  academicholder!: {
+    books: Book[];
     holderTitle: string;
   };
 
-  displaylist: {
-    books: {
-      imgSource: string;
-      bookLabel: string;
-    }[];
+  displaylist!: {
+    books: Book[];
     holderTitle: string;
   }[];
 
   constructor(bookService: BookserviceService) 
   {
     this.bookService = bookService;
-    this.fictionholder =  {
-      books: bookService.getFictionbucket(),
-      holderTitle: 'Top Fiction',
-    };
-    this.academicholder =  {
-      books: bookService.getAcademicBucket(),
-      holderTitle: 'Top Academics/Sciences',
-    };
-
-    this.displaylist = [this.fictionholder, this.academicholder];
+    
   }
-  ngOnInit(): void {
-    console.log(this.bookService.getFictionbucket());
+  ngOnInit(): void 
+  {
+    this.bookService.getAllBooks().subscribe(
+      (data)=>
+      {
+        this.books=data;
+        this.fictionholder =  {
+          books: this.books,
+          holderTitle: 'Top Fiction',
+        };
+        this.academicholder =  {
+          books: this.books,
+          holderTitle: 'Top Academics/Sciences',
+        };
+        this.displaylist = [this.fictionholder, this.academicholder];
+      }
+    )
   }
 
 
   issueBook(element: any) {
-    alert(element.bookLabel);
+    alert(element.bookTitle);
   }
 }

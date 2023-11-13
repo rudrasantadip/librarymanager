@@ -1,37 +1,50 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RegistrationserviceService } from '../authentication/registrationservice.service';
 import { Router } from '@angular/router';
-import { Credentials, apiResponse } from '../models/apiresponse';
+import { Credentials, authResponse } from '../models/apiresponse';
 import { CredshareService } from '../services/credshare.service';
 import { Subscription } from 'rxjs';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnDestroy
+export class LoginComponent implements OnInit,OnDestroy
  {
   subscription!:Subscription
 
-  constructor(
-    private authService: RegistrationserviceService,
-    private router: Router,
-    private shareCred:CredshareService) {}
+  
 
  
 
+  private responseData!: authResponse;  
 
-  private responseData!: apiResponse;
-
-  private credentials: Credentials = {
-    accesstoken:''
-  };
 
   formData = {
     username: '',
     password: '',
   };
+
+  constructor(
+    private authService: RegistrationserviceService,
+    private router: Router,
+    private cookieService:CookieService,
+    private credShare:CredshareService
+   )
+    {
+    }
+
+    token:string=''
+  ngOnInit(): void 
+  {
+    if(this.token!='')
+    {
+      this.router.navigate(["/dashboard"]);
+    }
+
+  }
 
   onSubmit() 
   {
@@ -55,12 +68,25 @@ export class LoginComponent implements OnDestroy
         // Login api call
         this.subscription=this.authService
           .login(this.formData.username, this.formData.password)
-          .subscribe((response: apiResponse) => {
+          .subscribe((response: authResponse) => {
             this.responseData = response;
-            this.credentials.accesstoken = this.responseData.accesstoken;
-            console.log(this.credentials);
-            this.shareCred.updateCredentials(this.credentials);
+            if(this.responseData.message=='non existing user')
+            {
+              alert('Invalid Credentials')
+            }
+            else if(this.responseData.message=='invalid format')
+            {
+              alert('Improper pattern in User Name and Password')
+            }
+            else if(this.responseData.message=='login successfull')
+            { 
+             const expiry = new Date();
+             expiry.setDate(expiry.getDate()+30); 
+            this.cookieService.set('isLoggedIn','true',expiry);
+            this.cookieService.set("accessToken",response.accessToken);
+            this.credShare.updateCredentials({accessToken:this.cookieService.get('accessToken'),isLoggedin:'true'})
             this.router.navigate(['/dashboard']);
+            }
           });
       }
     }
@@ -68,9 +94,9 @@ export class LoginComponent implements OnDestroy
 
   ngOnDestroy(): void
   {
-    if(this.subscription)
-    {
-      this.subscription.unsubscribe();
-    }
+    // if(this.subscription)
+    // {
+    //   this.subscription.unsubscribe();
+    // }
   }
 }

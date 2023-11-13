@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { RegistrationserviceService } from 'src/app/authentication/registrationservice.service';
-import { Credentials, apiResponse } from 'src/app/models/apiresponse';
+import { Credentials, Patron, authResponse } from 'src/app/models/apiresponse';
 import { CredshareService } from 'src/app/services/credshare.service';
 
 @Component({
@@ -11,34 +12,16 @@ import { CredshareService } from 'src/app/services/credshare.service';
 export class ProfilebodyComponent implements OnInit
 {
 
-  responseData: apiResponse={
-    message: '',
-    accesstoken:'',
-    timestamp: '',
-    status: false,
-    patron: {
-      patronId: 0,
-      fullName: '',
-      contactNumber: '',
-      dob: '',
-      gender: '',
-      userName: '',
-      email: '',
-      password: '',
-      cardNumber: '',
-      cardValidity: '',
-      cardType:'',
-      accesstoken:''
-    } 
-  };
+  responseData: any
 
   patronName!: string;
   icon!:string
-  sharedCredentials: Credentials = { accesstoken:'' };
+  token:string=''
 
   constructor(
     private credservice: CredshareService,
-    private authservice: RegistrationserviceService
+    private authservice: RegistrationserviceService,
+    private cookieService:CookieService
   ) {
     this.patronName=''
   }
@@ -53,17 +36,18 @@ export class ProfilebodyComponent implements OnInit
     return str;
   }
 
-  ngOnInit(): void {
-    this.credservice.getCredentials().subscribe((data) => {
-      this.sharedCredentials = data;
-      console.log(this.sharedCredentials.accesstoken)
-
-      this.authservice.getpatron(this.sharedCredentials.accesstoken).subscribe(
-        (response:apiResponse)=>
+  ngOnInit(): void 
+  {
+    
+      
+      this.token=this.cookieService.get('accessToken');
+      if(this.token!='')
+      {
+      this.authservice.getpatron(this.token).subscribe(
+        (response:Patron)=>
         {
             this.responseData=response;
-            console.log(this.responseData);
-            this.patronName =this.responseData.patron.email;
+            this.patronName =this.responseData.logCredentials.email;
             if(this.patronName=='')
             {
               this.patronName="User"
@@ -72,7 +56,8 @@ export class ProfilebodyComponent implements OnInit
             this.icon = this.patronName.charAt(0).toLocaleUpperCase();
         }
       )
-    });
+      };
+    
 
   }
 

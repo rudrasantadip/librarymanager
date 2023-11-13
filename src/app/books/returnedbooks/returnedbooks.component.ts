@@ -8,18 +8,13 @@ import { BookserviceService } from '../services/bookservice.service';
 })
 export class ReturnedbooksComponent implements OnInit
 {
- info: any
   constructor(private bookservice: BookserviceService)
   {
 
   }
 
   ngOnInit(): void {
-    this.bookservice.getBooks().subscribe(data=>
-      {
-        this.info=data;
-        console.log(this.info);
-      })
+   
 
   }
 }

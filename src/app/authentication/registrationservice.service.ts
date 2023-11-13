@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, shareReplay } from 'rxjs';
-import { apiResponse } from '../models/apiresponse';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { Observable, catchError, of, shareReplay, throwError } from 'rxjs';
+import { Patron, authResponse } from '../models/apiresponse';
 
 @Injectable({
   providedIn: 'root'
@@ -11,26 +11,29 @@ export class RegistrationserviceService
 
   constructor(private http: HttpClient) { }
   private url = 'http://localhost:8080';
+  errormessage:string=''
 
 
-  register(data:any): Observable<apiResponse>
+  register(data:any): Observable<authResponse>
   {
-    return this.http.post<apiResponse>(`${this.url}/auth/register`,data);
+    return this.http.post<authResponse>(`${this.url}/auth/register`,data)
+    
   }
 
-  login(username:string,password:string): Observable<apiResponse>
+
+  login(username:string,password:string): Observable<authResponse>
   {
     let params = new HttpParams();
     params = params.set('username',username);
     params=params.set('password',password);
-    return this.http.get<apiResponse>(`${this.url}/auth/login`,{params:params}).pipe(shareReplay(1));
+    return this.http.get<authResponse>(`${this.url}/auth/login`,{params:params}).pipe(shareReplay(1));
   }
 
-  getpatron(accesstoken:string):Observable<apiResponse>
+  getpatron(accesstoken:string):Observable<Patron>
   {
     let params = new HttpParams();
-    params=params.set('accesstoken',accesstoken);
-    return this.http.get<apiResponse>(`${this.url}/auth/getPatron`,{params:params});
+    params=params.set('access_token',accesstoken);
+    return this.http.get<Patron>(`${this.url}/patron/getPatron`,{params:params});
   }
 
   isPasswordValid(password: string): boolean {
@@ -53,5 +56,19 @@ export class RegistrationserviceService
     return pattern.test(username);
 
     // Use the test method to check if the username matches the pattern.
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0)
+    {
+      console.log(error.error)
+    }
+    else if (error.status===400)
+    {
+     this.errormessage=error.message
+      console.log(this.errormessage)
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(() => new Error('Server Error'));
   }
 }

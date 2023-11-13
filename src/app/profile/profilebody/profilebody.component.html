@@ -43,7 +43,7 @@
             placeholder="User Name"
             aria-label="User Name"
             aria-describedby="basic-addon2"
-            [value]="responseData.patron.userName"
+            [value]="this.responseData.logCredentials.userName"
             readonly
           />
         </div>
@@ -54,7 +54,7 @@
             placeholder="Email"
             aria-label="Email"
             aria-describedby="basic-addon2"
-            [value]="responseData.patron.email"
+            [value]="this.responseData.logCredentials.email"
             readonly
           />
         </div>
@@ -68,7 +68,7 @@
             placeholder="Contact Number"
             aria-label="Contact Number"
             aria-describedby="basic-addon2"
-            [value]="responseData.patron.contactNumber"
+            [value]=""
             readonly
           />
         </div>
@@ -79,7 +79,7 @@
             placeholder="Date of Birth"
             aria-label="Date of Birth"
             aria-describedby="basic-addon2"
-            [value]="responseData.patron.dob"
+            [value]="this.responseData.personalInfo.dob"
             readonly
           />
         </div>
@@ -90,7 +90,7 @@
             placeholder="Gender"
             aria-label="Gender"
             aria-describedby="basic-addon2"
-            [value]="responseData.patron.gender"
+            [value]="this.responseData.personalInfo.gender"
             readonly
           />
         </div>
@@ -117,7 +117,7 @@
             placeholder="Library Card Number"
             aria-label="Library Card Number"
             aria-describedby="basic-addon2"
-            [value]="responseData.patron.cardNumber"
+            [value]="this.responseData.cardCredentials.cardNumber"
             readonly
           />
         </div>
@@ -128,7 +128,7 @@
             placeholder="Validity"
             aria-label="Validity"
             aria-describedby="basic-addon2"
-            [value]="responseData.patron.cardValidity"
+            [value]="this.responseData.cardCredentials.cardValidity"
             readonly
           />
         </div>
@@ -139,7 +139,7 @@
             placeholder="Card Type"
             aria-label="Card Type"
             aria-describedby="basic-addon2"
-            [value]="responseData.patron.cardType"
+            [value]="this.responseData.cardCredentials.cardType"
             readonly
           />
         </div>

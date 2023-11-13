@@ -1,31 +1,76 @@
-import { Timestamp } from "rxjs"
+// {
+//     "patronId": 1,
+//     "personalInfo": {
+//         "personalId": 1,
+//         "fullName": null,
+//         "gender": null,
+//         "dob": null
+//     },
+//     "cardCredentials": {
+//         "credId": 1,
+//         "cardNumber": "20231112160605",
+//         "cardValidity": "12-11-2024",
+//         "cardType": "A"
+//     },
+//     "logCredentials": {
+//         "loginId": 1,
+//         "userName": "qwerty123",
+//         "password": "Santadip9830#",
+//         "email": "santadip9@gmail.com"
+//     },
+//     "accessToken": {
+//         "accessToken": "yhRZPGr8i6k0PJP4NnwsuXfwL0T0YlAyPbJTS9rlJQY",
+//         "tokenId": 1
+//     }
+// }
+export interface PersonalInfo
+{
+    personalId:number,
+    fullName:string,
+    gender:string,
+    dob:string
+}
+
+export interface AccessToken
+{
+    accessToken:string,
+    tokenId:number
+}
+
+export interface CardCredentials
+{
+    credId:number,
+    cardNumber:string,
+    cardValidity:string,
+    cardType:string
+}
+
+export interface LogCredentials
+{
+    loginId: number,
+    userName: string,
+    password: string,
+    email: string
+}
 
 export interface Patron
 {
-    patronId: number,
-    fullName:string,
-    contactNumber:string,
-    dob:string,
-    gender:string,
-    userName: string,
-    email: string,
-    password: string,
-    cardNumber: string,
-    cardValidity: string,
-    cardType:string,
-    accesstoken:string
+    patronId:number,
+    personalInfo:PersonalInfo,
+    cardCredentials:CardCredentials,
+    logCredentials:LogCredentials,
+    accessToken:AccessToken
 }
 
-export interface apiResponse
+export interface authResponse
 {
+    accessToken:string,
     message:string,
-    accesstoken:string,
-    timestamp:string,
-    status:boolean,
-    patron:Patron 
+    status:boolean
 }
 
 export interface Credentials
 {
-    accesstoken:string
+    accessToken:string,
+    isLoggedin?:string
 }

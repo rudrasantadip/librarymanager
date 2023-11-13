@@ -23,7 +23,7 @@ export class IssuedbooksComponent implements OnInit
 
   ngOnInit(): void 
   {
-    this.issued_books_data = this.bookservice.getIssuedBookBucket();
+    this.issued_books_data = issuedBooksData;
     this.dtOptions = {
       pagingType: 'full_numbers',
     };

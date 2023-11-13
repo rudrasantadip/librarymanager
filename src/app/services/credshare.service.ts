@@ -9,7 +9,8 @@ export class CredshareService
 {
   private credentials = new BehaviorSubject<Credentials> (
   {
-    accesstoken:''
+    accessToken:'',
+    isLoggedin:'false'
   });
 
   currentData = this.credentials.asObservable();

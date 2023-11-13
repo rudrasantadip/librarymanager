@@ -26,6 +26,7 @@ import { CredshareService } from './services/credshare.service';
 
 
 
+
 const ngxuiLoaderConfig:NgxUiLoaderConfig ={
   bgsColor: 'red',
   fgsType: SPINNER.ballSpinClockwise,
@@ -63,7 +64,7 @@ const ngxuiLoaderConfig:NgxUiLoaderConfig ={
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    DataTablesModule
+    DataTablesModule,
   ],
   providers: [CredshareService],
   bootstrap: [AppComponent]
