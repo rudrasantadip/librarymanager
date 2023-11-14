@@ -12,7 +12,37 @@ import { CredshareService } from 'src/app/services/credshare.service';
 export class ProfilebodyComponent implements OnInit
 {
 
-  responseData: any
+  responseData:Patron=
+  {
+    patronId:0,
+    personalInfo:
+    {
+      personalId:0,
+      fullName:'',
+      gender:'',
+      dob:''
+    },
+    cardCredentials:
+    {
+      cardId:0,
+      cardNumber:'',
+      cardValidity:'',
+      cardType:''
+    },
+    logCredentials:
+    {
+      loginId:0,
+      userName:'',
+      password:'',
+      email:''
+    }
+    ,
+    accessToken:
+    {
+      accessToken:'',
+      tokenId:0
+    }
+  } 
 
   patronName!: string;
   icon!:string
@@ -38,8 +68,6 @@ export class ProfilebodyComponent implements OnInit
 
   ngOnInit(): void 
   {
-    
-      
       this.token=this.cookieService.get('accessToken');
       if(this.token!='')
       {

@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { fictionbookdata } from '../issuebook/fictionbookdata';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { Book} from 'src/app/models/books/book';
 
@@ -27,6 +27,17 @@ export class BookserviceService implements OnInit
    return this.http.get<Book[]>(`${this.apiUrl}/getBooks`)
   }
 
+  addBook(data:Book) : Observable<Book>
+  {
+    return this.http.post<Book>(`${this.apiUrl}/addBook`,data);
+  }
+
+  removeBook(isbn:string):Observable<string>
+  {
+    let url:string=`${this.apiUrl}/removeBook?number=${encodeURIComponent(isbn)}`
+    let params = new HttpParams();
+    return this.http.get<string>(url);
+  }
 
   getFictionbucket()
   {

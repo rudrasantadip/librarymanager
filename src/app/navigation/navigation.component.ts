@@ -1,6 +1,8 @@
 import { Component,EventEmitter,HostListener,OnInit,Output } from '@angular/core';
-import { navbarData } from './nav-data';
+import { ItemModel, navbarData } from './nav-data';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { NavItemsService } from '../services/nav-items.service';
+import { Router } from '@angular/router';
 
 interface SideNavToggle
 {
@@ -18,7 +20,17 @@ collapsed:boolean;
 
 export class NavigationComponent implements OnInit
 {
-  constructor(private ngxService: NgxUiLoaderService){}
+
+  navData!:ItemModel[]
+  constructor(
+    
+    private navitemService:NavItemsService,
+    private router:Router
+    )
+    {
+
+    }
+
   @HostListener('window:resize',['$event'])
   onResize(event:any)
   {
@@ -32,13 +44,20 @@ export class NavigationComponent implements OnInit
 
   ngOnInit(): void 
   {
-    this.screenWidth=window.innerWidth;    
+    this.screenWidth=window.innerWidth; 
+    // this.navData = navbarData;
+    this.navitemService.getItemList().subscribe(
+      (items)=>
+      {
+        this.navData=items;
+      }
+    )   
   }
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed:boolean=false;
   screenWidth:number=0;
-  navData = navbarData;
+
 
   toggleCollapse():void
   {

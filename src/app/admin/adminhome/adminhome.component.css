@@ -1,0 +1,61 @@
+.container-fluid
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: -10px;
+}
+.heading
+{
+    margin-left: 18px;
+    text-align: center;
+}
+.cards
+{
+    display: flex;
+    padding: 15px;
+    justify-content: space-around;
+}
+.card
+{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: #ECEFF1;
+    padding: 18px;
+    box-shadow: 0.063rem 0 1.25rem 0 rgb(216, 211, 211);
+}
+.card img
+{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100px;
+    border-radius: 30px;
+}
+
+.card a
+{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border-radius: 70px;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow: 0.063rem 0 1.25rem 0 rgb(216, 211, 211);
+}
+
+.card a i
+{
+    position: relative;
+    top: 10%;
+    right: 5%;
+    font-size: 30px;
+}
+
+@media screen and (max-width:600px)
+{
+    .cards
+    {
+        flex-direction: column;
+    }
+}

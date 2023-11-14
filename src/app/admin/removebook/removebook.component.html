@@ -1,0 +1,82 @@
+<div class="choices" [ngClass]="{choicesactive:choiceActive}" id="choices">
+  <p>Would you like to permanently remove {{popupTitle}}!!</p>
+  <div class="button-group">
+    <button class="btn btn-info" (click)="proceed()">Proceed</button>
+  <button  class="btn btn-danger" (click)="cancle()">Cancle</button>
+  </div>
+</div>
+
+<div class="container" [ngClass]="{containerinactive:choiceActive}" id="main-container">
+    <div class="top">
+        <div class="row">
+            <div class="col-sm-6 mb-3 mb-sm-3" id="total-books">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Total Books</h5>
+                  <p class="card-text">{{size}}</p>
+                  <a href="#" class="btn btn-light">Expand</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6" id="total-users"> 
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Total Users</h5>
+                  <p class="card-text">1200</p>
+                  <a href="#" class="btn btn-light">Expand</a>
+                </div>
+              </div>
+          </div>
+
+          <div class="col-sm-6" id="active-users">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Active Users</h5>
+                <p class="card-text">56</p>
+                <a href="#" class="btn btn-light">Expand</a>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-6" id="report">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Sales</h5>
+                <p class="card-text">Analysis Panel</p>
+                <a href="#" class="btn btn-light">Expand</a>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <table class="table table-hover table-striped" id="allbooks" >
+            <thead>
+                <tr>
+                    <th>ISBN No</th>
+                    <th>Book</th>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Quantity</th>
+                    <th>Issued</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of booklist">
+                    <td>{{book.isbn}}</td>
+                    <td><img [src]="book.bookImg"></td>
+                    <td>{{book.bookTitle}}</td>
+                    <td>{{book.bookGenre}}</td>
+                    <td>{{book.bookAuthor}}</td>
+                    <td>{{book.publisher}}</td>
+                    <td>200</td>
+                    <td>56</td>
+                    <td><button class="btn btn-danger" id="tablebutton" (click)="removeBook(book)">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

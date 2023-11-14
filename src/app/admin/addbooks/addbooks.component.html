@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="formbox">
+
+      <form #addBookform="ngForm" (ngSubmit)="addBook()">
+        <div class="heading">
+            <h1 class="h3">Add a book/journal</h1>
+        </div>
+        <div class="box">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput1" name="isbn" [(ngModel)]="formData.isbn" placeholder="ISBN No">
+                <label for="floatingInput1">ISBN</label>
+              </div>
+    
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput2" name="bookimg" [(ngModel)]="formData.bookImg" placeholder="Book Image">
+                <label for="floatingInput2">Book Image</label>
+              </div>
+        </div>
+
+        <div class="box">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput3" name="booktitle" [(ngModel)]="formData.bookTitle" placeholder="Book Title">
+                <label for="floatingInput3">Book Title</label>
+              </div>
+    
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput4" name="bookgenre" [(ngModel)]="formData.bookGenre" placeholder="Book Genre">
+                <label for="floatingPassword4">Book Genere</label>
+              </div>
+        </div>
+
+        <div class="box">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput5" name="bookauthor" [(ngModel)]="formData.bookAuthor" placeholder="Book Author">
+                <label for="floatingInput5">Book Author</label>
+              </div>
+    
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput6" name="publisher" [(ngModel)]="formData.publisher" placeholder="Book Publisher">
+                <label for="floatingInput6">Book Publisher</label>
+              </div>
+        </div>
+        
+        <div class="box">
+            <div class="add">
+                <input type="submit" name="submit" value="Add Book" class="btn btn-danger">
+            </div>
+        </div>
+      </form>
+    </div>
+</div>

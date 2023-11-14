@@ -39,7 +39,7 @@ export interface AccessToken
 
 export interface CardCredentials
 {
-    credId:number,
+    cardId:number,
     cardNumber:string,
     cardValidity:string,
     cardType:string

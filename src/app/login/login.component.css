@@ -6,7 +6,10 @@
   }
   
   
-  
+  .loginhead
+  {
+    font-size: 30px;
+  }
   .container{
       display: flex;
       position: absolute;
@@ -19,8 +22,6 @@
       border-radius: 10px;
       box-shadow: 0.063rem 0 1.25rem 0 rgba(0,0,0,0.5);
       opacity: 0.9;
-  
-      
     }
   
   .center

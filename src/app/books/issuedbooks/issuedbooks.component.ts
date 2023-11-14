@@ -9,7 +9,7 @@ import { issuedBooksData } from './issuedBooksData';
 })
 export class IssuedbooksComponent implements OnInit
  {
-   dtOptions: DataTables.Settings = {};
+  //  dtOptions: DataTables.Settings = {};
    dashTitle = 'Book List';
    issued_books_data: { bookLabel: string; author: string; genre: string; issueDate: string; returnedDate: string; }[] | undefined;
    bookservice : BookserviceService
@@ -24,8 +24,5 @@ export class IssuedbooksComponent implements OnInit
   ngOnInit(): void 
   {
     this.issued_books_data = issuedBooksData;
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-    };
   }
 }

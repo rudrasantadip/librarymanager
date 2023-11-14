@@ -83,7 +83,7 @@ export class LoginComponent implements OnInit,OnDestroy
              const expiry = new Date();
              expiry.setDate(expiry.getDate()+30); 
             this.cookieService.set('isLoggedIn','true',expiry);
-            this.cookieService.set("accessToken",response.accessToken);
+            this.cookieService.set("accessToken",response.accessToken,expiry);
             this.credShare.updateCredentials({accessToken:this.cookieService.get('accessToken'),isLoggedin:'true'})
             this.router.navigate(['/dashboard']);
             }

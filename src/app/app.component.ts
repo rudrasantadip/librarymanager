@@ -1,5 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgxUiLoaderService} from 'ngx-ui-loader';
+import { NavItemsService } from './services/nav-items.service';
+import { navbarData } from './navigation/nav-data';
 
 
 interface SideNavToggle
@@ -16,7 +18,10 @@ collapsed:boolean;
 export class AppComponent implements OnInit 
 {
   
-  constructor(private ngxService: NgxUiLoaderService) {}
+  constructor(private ngxService: NgxUiLoaderService,private navItemService:NavItemsService)
+   {
+    this.navItemService.updateItemList(navbarData)
+   }
 
 
   ngOnInit() :void

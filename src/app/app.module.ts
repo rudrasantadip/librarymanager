@@ -23,6 +23,21 @@ import { ReturnedbooksComponent } from './books/returnedbooks/returnedbooks.comp
 import { IssuedbooksComponent } from './books/issuedbooks/issuedbooks.component';
 import { LoadingComponent } from './loading/loading.component';
 import { CredshareService } from './services/credshare.service';
+import { AdminComponent } from './admin/admin.component';
+import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
+import { AdmincatalogComponent } from './admin/admincatalog/admincatalog.component';
+import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
+import { AdminborrowsComponent } from './admin/adminborrows/adminborrows.component';
+import { AdminchecksComponent } from './admin/adminchecks/adminchecks.component';
+import { AdminsettingsComponent } from './admin/adminsettings/adminsettings.component';
+import { AdminlogoutComponent } from './admin/adminlogout/adminlogout.component';
+import { AdminloginComponent } from './admin/adminlogin/adminlogin.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatButtonModule} from '@angular/material/button';
+import { AddbooksComponent } from './admin/addbooks/addbooks.component';
+import { RemovebookComponent } from './admin/removebook/removebook.component';
+
 
 
 
@@ -56,6 +71,18 @@ const ngxuiLoaderConfig:NgxUiLoaderConfig ={
     ReturnedbooksComponent,
     IssuedbooksComponent,
     LoadingComponent,
+    AdminComponent,
+    AdminhomeComponent,
+    AdmincatalogComponent,
+    AdminprofileComponent,
+    AdminborrowsComponent,
+    AdminchecksComponent,
+    AdminsettingsComponent,
+    AdminlogoutComponent,
+    AdminloginComponent,
+    AddbooksComponent,
+    RemovebookComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -65,6 +92,7 @@ const ngxuiLoaderConfig:NgxUiLoaderConfig ={
     FormsModule,
     HttpClientModule,
     DataTablesModule,
+    BrowserAnimationsModule,
   ],
   providers: [CredshareService],
   bootstrap: [AppComponent]
