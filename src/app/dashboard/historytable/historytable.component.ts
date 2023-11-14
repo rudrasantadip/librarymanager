@@ -9,11 +9,19 @@ import { tableitems } from './table-data-items';
 })
 export class HistorytableComponent
 {
-  // dtOptions: DataTables.Settings={};
+  dtOptions: DataTables.Settings={};
   tableDataItems=tableitems;
+  // dtOptions:DataTables.Settings={}
+
+  constructor()
+  {
+    this.dtOptions = {
+     pagingType:'full_numbers'
+    };
+  }
 
   ngOnInit():void
   {
-    
+    // let table = new DataTable()
   }
 }
