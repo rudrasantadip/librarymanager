@@ -11,7 +11,6 @@ export class HistorytableComponent
 {
   dtOptions: DataTables.Settings={};
   tableDataItems=tableitems;
-  // dtOptions:DataTables.Settings={}
 
   constructor()
   {
@@ -22,6 +21,6 @@ export class HistorytableComponent
 
   ngOnInit():void
   {
-    // let table = new DataTable()
+   
   }
 }

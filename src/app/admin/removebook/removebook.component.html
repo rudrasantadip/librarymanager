@@ -49,8 +49,8 @@
         </div>
     </div>
 
-    <div class="main">
-        <table class="table table-hover table-striped" id="allbooks" >
+    <div class="main">      
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover table-striped" id="allbooks" >
             <thead>
                 <tr>
                     <th>ISBN No</th>
@@ -64,9 +64,9 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let book of booklist">
-                    <td>{{book.isbn}}</td>
+            <tbody >
+                <tr *ngFor="let book of booklist" >
+                    <td >{{book.isbn}}</td>
                     <td><img [src]="book.bookImg"></td>
                     <td>{{book.bookTitle}}</td>
                     <td>{{book.bookGenre}}</td>

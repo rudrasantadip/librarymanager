@@ -36,6 +36,7 @@
 
 {
     margin-top: 10px;
+    padding: 13px;
 }
 
 table tbody
@@ -101,5 +102,9 @@ table tbody tr td
         left: 60%;
     }
    }
-    
+
+   .bookimage
+   {
+    width: 100px;
+   }
   

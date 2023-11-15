@@ -8,7 +8,9 @@ import { PatronService } from 'src/app/services/patron.service';
   templateUrl: './adminchecks.component.html',
   styleUrls: ['./adminchecks.component.css'],
 })
-export class AdminchecksComponent {
+export class AdminchecksComponent 
+{
+  activeUser:DataTables.Settings={}
   patron: Patron = {
     patronId: 0,
     personalInfo: {
@@ -41,7 +43,9 @@ export class AdminchecksComponent {
     private patronService: PatronService,
     private ngxService: NgxUiLoaderService
   ) {
-  
+      this.activeUser={
+        pagingType:'full_numbers'
+      }
   }
 
   findUser() {

@@ -37,6 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AddbooksComponent } from './admin/addbooks/addbooks.component';
 import { RemovebookComponent } from './admin/removebook/removebook.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -93,6 +95,8 @@ const ngxuiLoaderConfig:NgxUiLoaderConfig ={
     HttpClientModule,
     DataTablesModule,
     BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [CredshareService],
   bootstrap: [AppComponent]
